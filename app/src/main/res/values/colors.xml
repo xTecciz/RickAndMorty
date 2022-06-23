@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="character_name_background">#8B000000</color>
+    <color name="main_color">#0E1850</color>
+    <color name="bottom_color">#08315A</color>
+    <color name="second_color">#083765</color>
+    <color name="episode_number_color">#1976D2</color>
+    <color name="spinner_background">#00A5FF</color>
+    <color name="small_text_color">#C49A9A9A</color>
+    <color name="alive_char_color">#2EED0C</color>
+    <color name="dead_char_color">#FF0000</color>
+    <color name="button_text">#C9F600</color>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/itemCharacterImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/character_image"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircularImage"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/itemCharacterStatus"
+            style="@style/itemCharacterTextView"
+            android:layout_width="wrap_content"
+            android:text="@string/some_text"
+            app:layout_constraintBottom_toTopOf="@+id/itemCharacterNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemCharacterImageView" />
+
+        <TextView
+            android:id="@+id/itemCharacterNameTextView"
+            style="@style/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/some_text"
+            app:layout_constraintBottom_toTopOf="@+id/itemCharacterInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemCharacterStatus" />
+
+        <TextView
+            android:id="@+id/itemCharacterInfo"
+            style="@style/itemCharacterTextView"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/some_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemCharacterNameTextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

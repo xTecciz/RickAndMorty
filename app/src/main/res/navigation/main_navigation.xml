@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/characterFragment">
+
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.characterscreen.CharacterFragment"
+        android:label="Characters"
+        tools:layout="@layout/fragment_character">
+        <action
+            android:id="@+id/action_characterFragment_to_characterDetailScreen"
+            app:destination="@id/characterDetailFragment"
+            app:popUpTo="@id/characterFragment" />
+        <action
+            android:id="@+id/action_characterFragment_to_bottomSheet"
+            app:destination="@id/bottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodeFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.episodescreen.EpisodeFragment"
+        android:label="Episodes"
+        tools:layout="@layout/fragment_episode">
+        <action
+            android:id="@+id/action_episodeFragment_to_bottomSheet"
+            app:destination="@id/bottomSheet" />
+        <action
+            android:id="@+id/action_episodeFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment"
+            app:popUpTo="@id/episodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.locationscreen.LocationFragment"
+        android:label="Locations"
+        tools:layout="@layout/fragment_location">
+        <action
+            android:id="@+id/action_locationFragment_to_bottomSheet"
+            app:destination="@id/bottomSheet" />
+        <action
+            android:id="@+id/action_locationFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment"
+            app:popUpTo="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.characterdetailscreen.CharacterDetailFragment"
+        android:label="Character Details">
+        <argument
+            android:name="characterId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_characterDetailFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment" />
+        <action
+            android:id="@+id/action_characterDetailFragment_to_episodeFragment"
+            app:destination="@id/episodeFragment" />
+        <action
+            android:id="@+id/action_characterDetailFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheet"
+        android:name="com.teckzi.rickandmorty.presentation.common.bottomsheet.BottomSheet"
+        android:label="Filter"
+        tools:layout="@layout/fragment_bottom_sheet">
+        <action
+            android:id="@+id/action_bottomSheet_to_characterFragment"
+            app:destination="@id/characterFragment" />
+        <argument
+            android:name="filterType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bottomSheet_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_bottomSheet_to_episodeFragment"
+            app:destination="@id/episodeFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.episodedetailscreen.EpisodeDetailFragment"
+        android:label="Episode Details"
+        tools:layout="@layout/fragment_episode_detail">
+        <action
+            android:id="@+id/action_episodeDetailFragment_to_characterDetailScreen"
+            app:destination="@id/characterDetailFragment" />
+        <argument
+            android:name="episodeId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_episodeDetailFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationDetailFragment"
+        android:name="com.teckzi.rickandmorty.presentation.screens.locationdetailscreen.LocationDetailFragment"
+        android:label="Location Details"
+        tools:layout="@layout/fragment_location_detail">
+        <action
+            android:id="@+id/action_locationDetailFragment_to_characterDetailScreen"
+            app:destination="@id/characterDetailFragment" />
+        <argument
+            android:name="locationId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_locationDetailFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
+</navigation>

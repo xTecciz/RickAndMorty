@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".presentation.common.bottomsheet.BottomSheet">
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:labelFor="@+id/chipGroupStatus"
+        android:text="@string/status"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/scrollViewStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStatus">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAlive"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alive" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDead"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dead" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipUnknown"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textViewGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:labelFor="@+id/chipGroupGender"
+        android:text="@string/gender"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewStatus" />
+
+
+    <LinearLayout
+        android:id="@+id/scrollViewGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGender">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupGender"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGenderMale"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGenderFemale"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGenderGenderless"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genderless" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGenderUnknown"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textViewSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:labelFor="@+id/editTextSpecies"
+        android:text="@string/species"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewGender" />
+
+    <EditText
+        android:id="@+id/editTextSpecies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints="no"
+        android:backgroundTint="@color/second_color"
+        android:hint="@string/species"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColor="@color/alive_char_color"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/textViewType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpecies" />
+
+    <TextView
+        android:id="@+id/textViewType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:labelFor="@+id/editTextType"
+        android:text="@string/type"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSpecies" />
+
+    <EditText
+        android:id="@+id/editTextType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints="no"
+        android:backgroundTint="@color/second_color"
+        android:hint="@string/type"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColor="@color/alive_char_color"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewType" />
+
+
+    <TextView
+        android:id="@+id/textViewEpisode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/episode"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextType" />
+
+    <Spinner
+        android:id="@+id/spinnerSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/second_color"
+        android:spinnerMode="dropdown"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerEpisode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEpisode" />
+
+    <Spinner
+        android:id="@+id/spinnerEpisode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/spinner_background"
+        android:popupBackground="@color/second_color"
+        android:spinnerMode="dropdown"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/spinnerSeason"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEpisode" />
+
+    <Button
+        android:id="@+id/buttonApplyBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/second_color"
+        android:text="@string/apply"
+        android:textAllCaps="false"
+        android:textColor="@color/button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEpisode"
+        app:layout_goneMarginTop="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
