@@ -2,11 +2,11 @@ package com.teckzi.domain.usecases.characterusecases
 
 import androidx.paging.PagingData
 import com.teckzi.domain.model.CharacterModel
-import com.teckzi.domain.repository.IRepository
+import com.teckzi.domain.repository.Repository
 import kotlinx.coroutines.flow.Flow
 
 class GetSearchedCharacterUseCase(
-    private val repository: IRepository
+    private val repository: Repository
 ) {
     suspend operator fun invoke(
         name: String?,

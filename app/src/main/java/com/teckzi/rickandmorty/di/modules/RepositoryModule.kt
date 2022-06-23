@@ -13,7 +13,7 @@ import com.teckzi.domain.usecases.locationusecases.GetAllLocationUseCase
 import com.teckzi.domain.usecases.locationusecases.GetLocationByName
 import com.teckzi.domain.usecases.locationusecases.GetSearchedLocationUseCase
 import com.teckzi.domain.usecases.locationusecases.GetSelectedLocationUseCase
-import com.teckzi.rickandmorty.data.repository.Repository
+import com.teckzi.rickandmorty.data.repository.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -23,23 +23,23 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideUseCases(repository: Repository): UseCases {
+    fun provideUseCases(repositoryImpl: RepositoryImpl): UseCases {
         return UseCases(
             /** Character UseCases */
-            getAllCharactersUseCase = GetAllCharactersUseCase(repository),
-            getSelectedCharacterUseCase = GetSelectedCharacterUseCase(repository),
-            getSearchedCharacterUseCase = GetSearchedCharacterUseCase(repository),
-            getCharacterListById = GetCharacterListById(repository),
+            getAllCharactersUseCase = GetAllCharactersUseCase(repositoryImpl),
+            getSelectedCharacterUseCase = GetSelectedCharacterUseCase(repositoryImpl),
+            getSearchedCharacterUseCase = GetSearchedCharacterUseCase(repositoryImpl),
+            getCharacterListById = GetCharacterListById(repositoryImpl),
             /** Episode UseCases */
-            getAllEpisodeUseCase = GetAllEpisodeUseCase(repository),
-            getSelectedEpisodeUseCase = GetSelectedEpisodeUseCase(repository),
-            getSearchedEpisodeUseCase = GetSearchedEpisodeUseCase(repository),
-            getEpisodeListById = GetEpisodeListById(repository),
+            getAllEpisodeUseCase = GetAllEpisodeUseCase(repositoryImpl),
+            getSelectedEpisodeUseCase = GetSelectedEpisodeUseCase(repositoryImpl),
+            getSearchedEpisodeUseCase = GetSearchedEpisodeUseCase(repositoryImpl),
+            getEpisodeListById = GetEpisodeListById(repositoryImpl),
             /** Location UseCases */
-            getAllLocationUseCase = GetAllLocationUseCase(repository),
-            getSelectedLocationUseCase = GetSelectedLocationUseCase(repository),
-            getSearchedLocationUseCase = GetSearchedLocationUseCase(repository),
-            getLocationByName = GetLocationByName(repository)
+            getAllLocationUseCase = GetAllLocationUseCase(repositoryImpl),
+            getSelectedLocationUseCase = GetSelectedLocationUseCase(repositoryImpl),
+            getSearchedLocationUseCase = GetSearchedLocationUseCase(repositoryImpl),
+            getLocationByName = GetLocationByName(repositoryImpl)
         )
     }
 }

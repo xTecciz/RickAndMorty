@@ -4,17 +4,17 @@ import androidx.paging.PagingData
 import com.teckzi.domain.model.CharacterModel
 import com.teckzi.domain.model.EpisodeModel
 import com.teckzi.domain.model.LocationModel
-import com.teckzi.domain.repository.IRepository
+import com.teckzi.domain.repository.Repository
 import com.teckzi.domain.repository.LocalDataSource
 import com.teckzi.domain.repository.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
-class Repository @Inject constructor(
+class RepositoryImpl @Inject constructor(
     private val local: LocalDataSource,
     private val remote: RemoteDataSource
-) : IRepository {
+) : Repository {
     override fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
         return remote.getAllCharacters()
     }

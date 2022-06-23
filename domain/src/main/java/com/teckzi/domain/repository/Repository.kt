@@ -6,7 +6,7 @@ import com.teckzi.domain.model.EpisodeModel
 import com.teckzi.domain.model.LocationModel
 import kotlinx.coroutines.flow.Flow
 
-interface IRepository {
+interface Repository {
 
     fun getAllCharacters(): Flow<PagingData<CharacterModel>>
     suspend fun getCharacterById(characterId: Int): CharacterModel
