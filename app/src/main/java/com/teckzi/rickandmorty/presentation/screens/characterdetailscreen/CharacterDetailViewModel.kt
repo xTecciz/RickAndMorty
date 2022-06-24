@@ -1,6 +1,5 @@
 package com.teckzi.rickandmorty.presentation.screens.characterdetailscreen
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.teckzi.domain.model.CharacterModel
@@ -20,16 +19,14 @@ class CharacterDetailViewModel @Inject constructor(
 
     private val _selectedCharacter: MutableStateFlow<CharacterModel?> = MutableStateFlow(null)
     val selectedCharacter: StateFlow<CharacterModel?> = _selectedCharacter
-    private val _episodeList: MutableStateFlow<List<EpisodeModel?>> = MutableStateFlow(emptyList())
-    val episodeList: StateFlow<List<EpisodeModel?>> = _episodeList
+    private val _episodeList: MutableStateFlow<List<EpisodeModel>> = MutableStateFlow(emptyList())
+    val episodeList: StateFlow<List<EpisodeModel>> = _episodeList
     private val _characterOrigin: MutableStateFlow<LocationModel?> = MutableStateFlow(null)
     val characterOrigin: StateFlow<LocationModel?> = _characterOrigin
     private var _characterLocation: MutableStateFlow<LocationModel?> = MutableStateFlow(null)
     val characterLocation: StateFlow<LocationModel?> = _characterLocation
 
     fun getCharacter(characterId: Int) {
-        Log.d("TAG viewModel", "id = $characterId")
-
         viewModelScope.launch(Dispatchers.IO) {
             _selectedCharacter.value =
                 characterId.let { useCases.getSelectedCharacterUseCase(characterId = characterId) }

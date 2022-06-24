@@ -53,7 +53,7 @@ class EpisodeFragment : Fragment(R.layout.fragment_episode), SearchView.OnQueryT
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
-            supportActionBar?.title = "Episodes"
+            supportActionBar?.title = getString(R.string.episodes)
         }
         setHasOptionsMenu(true)
         initRecyclerView()
@@ -132,7 +132,7 @@ class EpisodeFragment : Fragment(R.layout.fragment_episode), SearchView.OnQueryT
         inflater.inflate(R.menu.search_menu, menu)
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
-        searchView?.queryHint = "Search episode..."
+        searchView?.queryHint = getString(R.string.search_episode)
         searchView?.setOnQueryTextListener(this)
     }
 

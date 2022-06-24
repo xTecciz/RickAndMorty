@@ -18,9 +18,9 @@ class EpisodeDetailViewModel @Inject constructor(
 
     private val _selectedEpisode: MutableStateFlow<EpisodeModel?> = MutableStateFlow(null)
     val selectedEpisode: StateFlow<EpisodeModel?> = _selectedEpisode
-    private val _characterList: MutableStateFlow<List<CharacterModel?>> =
+    private val _characterList: MutableStateFlow<List<CharacterModel>> =
         MutableStateFlow(emptyList())
-    val characterList: StateFlow<List<CharacterModel?>> = _characterList
+    val characterList: StateFlow<List<CharacterModel>> = _characterList
 
     fun getEpisode(episodeId: Int) {
         viewModelScope.launch(Dispatchers.IO) {

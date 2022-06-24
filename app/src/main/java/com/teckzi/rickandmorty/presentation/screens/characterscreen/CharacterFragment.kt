@@ -53,7 +53,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character), SearchView.OnQu
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
-            supportActionBar?.title = "Characters"
+            supportActionBar?.title = getString(R.string.characters)
         }
         setHasOptionsMenu(true)
         initRecyclerView()
@@ -141,7 +141,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character), SearchView.OnQu
         inflater.inflate(R.menu.search_menu, menu)
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
-        searchView?.queryHint = "Search character..."
+        searchView?.queryHint = getString(R.string.search_character)
         searchView?.setOnQueryTextListener(this)
     }
 

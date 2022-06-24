@@ -85,9 +85,9 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
             characterDetailName.text = name
             characterDetailStatus.text = status
             when (status) {
-                "Alive" -> characterDetailStatus.setTextColor(Color.parseColor("#2EED0C"))
-                "Dead" -> characterDetailStatus.setTextColor(Color.parseColor("#FF0000"))
-                "unknown" -> characterDetailStatus.setTextColor(Color.parseColor("#C4FFFFFF"))
+                getString(R.string.alive) -> characterDetailStatus.setTextColor(Color.parseColor("#2EED0C"))
+                getString(R.string.dead) -> characterDetailStatus.setTextColor(Color.parseColor("#FF0000"))
+                getString(R.string.unknown) -> characterDetailStatus.setTextColor(Color.parseColor("#C4FFFFFF"))
             }
             characterDetailGender.text = gender
             characterDetailSpecies.text = species
@@ -108,7 +108,7 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
     private fun getEpisodes() {
         lifecycleScope.launch {
             viewModel.episodeList.collectLatest {
-                initRecyclerView(it as List<EpisodeModel>)
+                initRecyclerView(it)
             }
         }
     }
@@ -132,8 +132,6 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
                     }
                 }
             }
-        }
-        lifecycleScope.launch {
             viewModel.characterLocation.collectLatest { locationModel ->
                 if (locationModel?.id != null) {
                     binding.locationButton.setOnClickListener {

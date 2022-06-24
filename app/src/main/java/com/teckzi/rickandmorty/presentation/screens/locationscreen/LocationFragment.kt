@@ -55,7 +55,7 @@ class LocationFragment : Fragment(R.layout.fragment_location), SearchView.OnQuer
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
-            supportActionBar?.title = "Locations"
+            supportActionBar?.title = getString(R.string.locations)
         }
         setHasOptionsMenu(true)
         initRecyclerView()
@@ -137,7 +137,7 @@ class LocationFragment : Fragment(R.layout.fragment_location), SearchView.OnQuer
         inflater.inflate(R.menu.search_menu, menu)
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
-        searchView?.queryHint = "Search location..."
+        searchView?.queryHint = getString(R.string.search_location)
         searchView?.setOnQueryTextListener(this)
     }
 

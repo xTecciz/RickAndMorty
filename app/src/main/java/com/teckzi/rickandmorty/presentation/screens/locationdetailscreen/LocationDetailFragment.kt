@@ -83,7 +83,7 @@ class LocationDetailFragment : Fragment(R.layout.fragment_location_detail) {
     private fun getCharacters() {
         lifecycleScope.launch {
             viewModel.characterList.collectLatest {
-                initRecyclerView(it as List<CharacterModel>)
+                initRecyclerView(it)
             }
         }
     }

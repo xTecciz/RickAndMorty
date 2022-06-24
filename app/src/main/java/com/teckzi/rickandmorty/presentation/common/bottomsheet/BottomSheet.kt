@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.teckzi.rickandmorty.R
@@ -26,9 +27,7 @@ import com.teckzi.rickandmorty.util.visible
 
 class BottomSheet : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentBottomSheetBinding? = null
-    private val binding get() = _binding!!
-
+    private val binding by viewBinding(FragmentBottomSheetBinding::bind)
     private var sheetKey = "character"
     private var characterStatusChip: String? = ""
     private var characterGenderChip: String? = ""
@@ -44,7 +43,6 @@ class BottomSheet : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         val args = arguments?.getString(FILTER_TYPE_ARGUMENT_KEY)
         sheetKey = args.toString()
         when (sheetKey) {
@@ -84,44 +82,45 @@ class BottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun characterFilter() {
-        binding.chipGroupStatus.setOnCheckedChangeListener { group, selectedChipId ->
-            val chip = group.findViewById<Chip>(selectedChipId)
-            val text = chip.text.toString().lowercase()
-            characterStatusChip = if (text != "") text else null
-        }
-
-        binding.chipGroupGender.setOnCheckedChangeListener { group, selectedChipId ->
-            val chip = group.findViewById<Chip>(selectedChipId)
-            val text = chip.text.toString().lowercase()
-            characterGenderChip = if (text != "") text else null
-        }
-
-        binding.editTextSpecies.doAfterTextChanged {
-            val text = it.toString()
-            characterSpeciesText = if (text != "") text else null
-        }
-
-        binding.editTextType.doAfterTextChanged {
-            val text = it.toString()
-            characterTypeText = if (text != "") text else null
+        with(binding) {
+            chipGroupStatus.setOnCheckedChangeListener { group, selectedChipId ->
+                val chip = group.findViewById<Chip>(selectedChipId)
+                val text = chip.text.toString().lowercase()
+                characterStatusChip = if (text != "") text else null
+            }
+            chipGroupGender.setOnCheckedChangeListener { group, selectedChipId ->
+                val chip = group.findViewById<Chip>(selectedChipId)
+                val text = chip.text.toString().lowercase()
+                characterGenderChip = if (text != "") text else null
+            }
+            editTextSpecies.doAfterTextChanged {
+                val text = it.toString()
+                characterSpeciesText = if (text != "") text else null
+            }
+            editTextType.doAfterTextChanged {
+                val text = it.toString()
+                characterTypeText = if (text != "") text else null
+            }
         }
     }
 
     private fun locationFilter() {
         locationFilterViews()
-        binding.textViewSpecies.text = resources.getString(R.string.type)
-        binding.editTextSpecies.apply {
-            hint = "Type"
-            doAfterTextChanged {
-                locationType = it.toString()
+        with(binding) {
+            textViewSpecies.text = resources.getString(R.string.type)
+            editTextSpecies.apply {
+                hint = resources.getString(R.string.type)
+                doAfterTextChanged {
+                    locationType = it.toString()
+                }
             }
-        }
-        binding.textViewType.text =
-            resources.getString(R.string.dimension)
-        binding.editTextType.apply {
-            hint = "Dimension"
-            doAfterTextChanged {
-                locationDimension = it.toString()
+            textViewType.text =
+                resources.getString(R.string.dimension)
+            editTextType.apply {
+                hint = resources.getString(R.string.dimension)
+                doAfterTextChanged {
+                    locationDimension = it.toString()
+                }
             }
         }
     }
@@ -135,7 +134,6 @@ class BottomSheet : BottomSheetDialogFragment() {
         )
         seasonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerSeason.adapter = seasonAdapter
-
         binding.spinnerSeason.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -144,7 +142,7 @@ class BottomSheet : BottomSheetDialogFragment() {
                 id: Long
             ) {
                 season = when (parent?.getItemAtPosition(position)) {
-                    "All seasons" -> ""
+                    getString(R.string.all_seasons) -> ""
                     else -> "${parent?.getItemAtPosition(position)}".setStringToSeason()
                 }
             }
@@ -168,7 +166,7 @@ class BottomSheet : BottomSheetDialogFragment() {
                     id: Long
                 ) {
                     episode = when (parent?.getItemAtPosition(position)) {
-                        "All episodes" -> ""
+                        getString(R.string.all_episodes) -> ""
                         else -> "${parent?.getItemAtPosition(position)}".setStringToSeason()
                     }
                 }
@@ -178,25 +176,24 @@ class BottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun locationFilterViews() {
-        binding.textViewStatus.gone()
-        binding.scrollViewStatus.gone()
-        binding.textViewGender.gone()
-        binding.scrollViewGender.gone()
+        with(binding) {
+            textViewStatus.gone()
+            scrollViewStatus.gone()
+            textViewGender.gone()
+            scrollViewGender.gone()
+        }
     }
 
     private fun episodeFilterViews() {
         locationFilterViews()
-        binding.editTextSpecies.gone()
-        binding.textViewSpecies.gone()
-        binding.textViewType.gone()
-        binding.editTextType.gone()
-        binding.textViewEpisode.visible()
-        binding.spinnerSeason.visible()
-        binding.spinnerEpisode.visible()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        with(binding) {
+            editTextSpecies.gone()
+            textViewSpecies.gone()
+            textViewType.gone()
+            editTextType.gone()
+            textViewEpisode.visible()
+            spinnerSeason.visible()
+            spinnerEpisode.visible()
+        }
     }
 }

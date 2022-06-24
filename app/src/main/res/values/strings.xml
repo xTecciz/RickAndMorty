@@ -1,30 +1,33 @@
 <resources>
     <string name="app_name">RickAndMorty</string>
-    <string name="some_text">Some text</string>
-    <string name="alive">Alive</string>
-    <string name="dead">Dead</string>
-    <string name="unknown">Unknown</string>
-    <string name="status">Status</string>
+    <string name="characters">Characters</string>
+    <string name="character">Character</string>
+    <string name="location">Location</string>
+    <string name="locations">Locations</string>
+    <string name="episode">Episode</string>
+    <string name="episodes">Episodes</string>
     <string name="genderless">Genderless</string>
     <string name="female">Female</string>
     <string name="male">Male</string>
     <string name="type">Type</string>
     <string name="dimension">Dimension</string>
-    <string name="apply">Apply</string>
-    <string name="episode">Episode</string>
-    <string name="filter_button">Filter Button</string>
     <string name="gender">Gender</string>
     <string name="species">Species</string>
     <string name="origin">Origin</string>
-    <string name="location">Location</string>
+    <string name="some_text">Some text</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">Unknown</string>
+    <string name="status">Status</string>
+    <string name="apply">Apply</string>
+    <string name="filter_button">Filter Button</string>
     <string name="image_background">image background</string>
     <string name="character_image">character image</string>
     <string name="error_image">error image</string>
     <string name="release_date">Release Date</string>
     <string name="nothing_to_show">Nothing to show</string>
-    <string name="episodes">Episodes</string>
+    <string name="all_seasons">All seasons</string>
     <string name="all_episodes">All episodes</string>
-    <string name="characters">Characters</string>
     <string name="all_characters">All characters</string>
     <string name="navigate_to_current_origin">navigate to current origin</string>
     <string name="navigate_to_current_location">navigate to current location</string>
@@ -32,6 +35,9 @@
     <string name="return_back">return back</string>
     <string name="episode_number">Episodes(%d)</string>
     <string name="character_number">Characters(%d)</string>
+    <string name="search_character">Search character…</string>
+    <string name="search_location">Search location…</string>
+    <string name="search_episode">Search episode…</string>
     <string-array name="season_list">
         <item>All seasons</item>
         <item>Season 1</item>
