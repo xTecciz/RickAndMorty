@@ -27,7 +27,8 @@ import com.teckzi.rickandmorty.util.visible
 
 class BottomSheet : BottomSheetDialogFragment() {
 
-    private val binding by viewBinding(FragmentBottomSheetBinding::bind)
+    private var _binding: FragmentBottomSheetBinding? = null
+    private val binding get() = _binding!!
     private var sheetKey = "character"
     private var characterStatusChip: String? = ""
     private var characterGenderChip: String? = ""
@@ -43,6 +44,7 @@ class BottomSheet : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         val args = arguments?.getString(FILTER_TYPE_ARGUMENT_KEY)
         sheetKey = args.toString()
         when (sheetKey) {
