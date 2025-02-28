@@ -55,7 +55,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0"
 
     //Dagger 2 (заменили kapt на ksp)
-    def dagger2Version = "2.40.2"
+    def dagger2Version = "2.48"
     implementation "com.google.dagger:dagger:$dagger2Version"
     ksp "com.google.dagger:dagger-compiler:$dagger2Version" // ksp вместо kapt
 }
